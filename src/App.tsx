@@ -3,8 +3,11 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import Tenants from "./pages/Tenants";
 import NotFound from "./pages/NotFound";
+import { DashboardLayout } from "./components/layout/DashboardLayout";
 
 const queryClient = new QueryClient();
 
@@ -15,7 +18,89 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/dashboard" element={
+            <DashboardLayout>
+              <Dashboard />
+            </DashboardLayout>
+          } />
+          <Route path="/tenants" element={
+            <DashboardLayout>
+              <Tenants />
+            </DashboardLayout>
+          } />
+          <Route path="/users" element={
+            <DashboardLayout>
+              <div className="p-6 text-center">
+                <h1 className="text-2xl font-bold mb-4">Gestión de Usuarios</h1>
+                <p className="text-muted-foreground">Módulo en desarrollo</p>
+              </div>
+            </DashboardLayout>
+          } />
+          <Route path="/owners" element={
+            <DashboardLayout>
+              <div className="p-6 text-center">
+                <h1 className="text-2xl font-bold mb-4">Gestión de Propietarios</h1>
+                <p className="text-muted-foreground">Módulo en desarrollo</p>
+              </div>
+            </DashboardLayout>
+          } />
+          <Route path="/properties" element={
+            <DashboardLayout>
+              <div className="p-6 text-center">
+                <h1 className="text-2xl font-bold mb-4">Gestión de Inmuebles</h1>
+                <p className="text-muted-foreground">Módulo en desarrollo</p>
+              </div>
+            </DashboardLayout>
+          } />
+          <Route path="/contracts" element={
+            <DashboardLayout>
+              <div className="p-6 text-center">
+                <h1 className="text-2xl font-bold mb-4">Gestión de Contratos</h1>
+                <p className="text-muted-foreground">Módulo en desarrollo</p>
+              </div>
+            </DashboardLayout>
+          } />
+          <Route path="/payments" element={
+            <DashboardLayout>
+              <div className="p-6 text-center">
+                <h1 className="text-2xl font-bold mb-4">Gestión de Pagos</h1>
+                <p className="text-muted-foreground">Módulo en desarrollo</p>
+              </div>
+            </DashboardLayout>
+          } />
+          <Route path="/reports" element={
+            <DashboardLayout>
+              <div className="p-6 text-center">
+                <h1 className="text-2xl font-bold mb-4">Reportes</h1>
+                <p className="text-muted-foreground">Módulo en desarrollo</p>
+              </div>
+            </DashboardLayout>
+          } />
+          <Route path="/notifications" element={
+            <DashboardLayout>
+              <div className="p-6 text-center">
+                <h1 className="text-2xl font-bold mb-4">Notificaciones</h1>
+                <p className="text-muted-foreground">Módulo en desarrollo</p>
+              </div>
+            </DashboardLayout>
+          } />
+          <Route path="/backups" element={
+            <DashboardLayout>
+              <div className="p-6 text-center">
+                <h1 className="text-2xl font-bold mb-4">Gestión de Backups</h1>
+                <p className="text-muted-foreground">Módulo en desarrollo</p>
+              </div>
+            </DashboardLayout>
+          } />
+          <Route path="/settings" element={
+            <DashboardLayout>
+              <div className="p-6 text-center">
+                <h1 className="text-2xl font-bold mb-4">Configuración</h1>
+                <p className="text-muted-foreground">Módulo en desarrollo</p>
+              </div>
+            </DashboardLayout>
+          } />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
