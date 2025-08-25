@@ -2,102 +2,106 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Design system for property management interface */
+/* InmoGestor - Design system with fresh green and blue palette */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 220 13% 18%;
+    /* Base colors using the new palette */
+    --background: 95 100% 95%; /* #F1FFE7 - light green cream */
+    --foreground: 238 43% 18%; /* #1A1B41 - dark navy */
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 13% 18%;
+    --card: 0 0% 100%; /* Pure white for cards */
+    --card-foreground: 238 43% 18%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 13% 18%;
+    --popover-foreground: 238 43% 18%;
 
-    /* Professional blue theme */
-    --primary: 217 91% 32%;
-    --primary-foreground: 0 0% 98%;
-    --primary-light: 217 91% 42%;
-    --primary-lighter: 217 91% 85%;
+    /* Primary: Bright lime green */
+    --primary: 81 100% 58%; /* #BAFF29 - lime green */
+    --primary-foreground: 238 43% 18%; /* Dark navy text on lime */
+    --primary-light: 81 100% 68%;
+    --primary-lighter: 81 100% 88%;
 
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 220 13% 18%;
+    /* Secondary: Medium blue */
+    --secondary: 212 46% 57%; /* #6290C3 - medium blue */
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 9% 46%;
+    /* Muted: Light mint green */
+    --muted: 159 44% 83%; /* #C2E7DA - light mint */
+    --muted-foreground: 238 43% 35%;
 
-    --accent: 217 91% 32%;
-    --accent-foreground: 0 0% 98%;
+    /* Accent: Mint green */
+    --accent: 159 44% 83%; /* #C2E7DA */
+    --accent-foreground: 238 43% 18%;
 
-    /* Status colors */
-    --success: 142 76% 36%;
-    --success-foreground: 0 0% 98%;
+    /* Status colors - enhanced with palette */
+    --success: 81 100% 58%; /* Use lime green for success */
+    --success-foreground: 238 43% 18%;
     --warning: 38 92% 50%;
-    --warning-foreground: 0 0% 98%;
+    --warning-foreground: 238 43% 18%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 217 91% 32%;
+    --border: 159 44% 75%;
+    --input: 159 44% 75%;
+    --ring: 81 100% 58%;
 
     --radius: 0.75rem;
 
     /* Sidebar variables */
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 238 43% 18%; /* #1A1B41 - dark navy */
+    --sidebar-foreground: 95 100% 95%;
+    --sidebar-primary: 81 100% 58%; /* #BAFF29 - lime green */
+    --sidebar-primary-foreground: 238 43% 18%;
+    --sidebar-accent: 238 43% 25%;
+    --sidebar-accent-foreground: 95 100% 95%;
+    --sidebar-border: 238 43% 25%;
+    --sidebar-ring: 81 100% 58%;
   }
 
   .dark {
-    --background: 220 13% 9%;
-    --foreground: 0 0% 95%;
+    --background: 238 43% 12%;
+    --foreground: 95 100% 95%;
 
-    --card: 220 13% 9%;
-    --card-foreground: 0 0% 95%;
+    --card: 238 43% 15%;
+    --card-foreground: 95 100% 95%;
 
-    --popover: 220 13% 9%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 238 43% 15%;
+    --popover-foreground: 95 100% 95%;
 
-    --primary: 217 91% 52%;
-    --primary-foreground: 0 0% 9%;
-    --primary-light: 217 91% 62%;
-    --primary-lighter: 217 91% 25%;
+    --primary: 81 100% 58%;
+    --primary-foreground: 238 43% 18%;
+    --primary-light: 81 100% 68%;
+    --primary-lighter: 81 100% 30%;
 
-    --secondary: 220 13% 15%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 212 46% 57%;
+    --secondary-foreground: 238 43% 18%;
 
-    --muted: 220 13% 15%;
-    --muted-foreground: 220 9% 65%;
+    --muted: 238 43% 20%;
+    --muted-foreground: 159 44% 70%;
 
-    --accent: 217 91% 52%;
-    --accent-foreground: 0 0% 9%;
+    --accent: 159 44% 40%;
+    --accent-foreground: 95 100% 95%;
 
-    --success: 142 76% 46%;
-    --success-foreground: 0 0% 9%;
+    --success: 81 100% 58%;
+    --success-foreground: 238 43% 18%;
     --warning: 38 92% 60%;
-    --warning-foreground: 0 0% 9%;
+    --warning-foreground: 238 43% 18%;
     --destructive: 0 84% 70%;
     --destructive-foreground: 0 0% 9%;
 
-    --border: 220 13% 18%;
-    --input: 220 13% 18%;
-    --ring: 217 91% 52%;
+    --border: 238 43% 25%;
+    --input: 238 43% 25%;
+    --ring: 81 100% 58%;
 
-    --sidebar-background: 220 13% 6%;
-    --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 217 91% 52%;
-    --sidebar-primary-foreground: 0 0% 9%;
-    --sidebar-accent: 220 13% 12%;
-    --sidebar-accent-foreground: 0 0% 90%;
-    --sidebar-border: 220 13% 12%;
-    --sidebar-ring: 217 91% 52%;
+    --sidebar-background: 238 43% 10%;
+    --sidebar-foreground: 95 100% 95%;
+    --sidebar-primary: 81 100% 58%;
+    --sidebar-primary-foreground: 238 43% 18%;
+    --sidebar-accent: 238 43% 18%;
+    --sidebar-accent-foreground: 95 100% 95%;
+    --sidebar-border: 238 43% 18%;
+    --sidebar-ring: 81 100% 58%;
   }
 }
 

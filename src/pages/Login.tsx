@@ -28,7 +28,7 @@ const Login = () => {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-2xl mb-4 shadow-elegant">
             <Building2 className="w-8 h-8 text-primary-foreground" />
           </div>
-          <h1 className="text-3xl font-bold text-foreground">PropManager</h1>
+          <h1 className="text-3xl font-bold text-foreground">InmoGestor</h1>
           <p className="text-muted-foreground mt-2">Sistema de Gestión de Alquileres</p>
         </div>
 
@@ -96,7 +96,7 @@ const Login = () => {
         </Card>
 
         <div className="text-center mt-6 text-sm text-muted-foreground">
-          <p>© 2024 PropManager. Todos los derechos reservados.</p>
+          <p>© 2024 InmoGestor. Todos los derechos reservados.</p>
         </div>
       </div>
     </div>

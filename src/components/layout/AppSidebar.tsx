@@ -119,8 +119,8 @@ export function AppSidebar() {
             </div>
             {!collapsed && (
               <div>
-                <h2 className="font-semibold text-foreground">PropManager</h2>
-                <p className="text-xs text-muted-foreground">v1.0</p>
+                <h2 className="font-semibold text-sidebar-foreground">InmoGestor</h2>
+                <p className="text-xs text-sidebar-foreground/70">v1.0</p>
               </div>
             )}
           </div>
