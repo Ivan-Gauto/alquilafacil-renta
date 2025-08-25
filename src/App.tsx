@@ -6,6 +6,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Tenants from "./pages/Tenants";
+import Owners from "./pages/Owners";
+import Properties from "./pages/Properties";
+import Contracts from "./pages/Contracts";
+import Payments from "./pages/Payments";
+import Reports from "./pages/Reports";
+import Notifications from "./pages/Notifications";
+import Backups from "./pages/Backups";
+import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 import { DashboardLayout } from "./components/layout/DashboardLayout";
 
@@ -39,66 +47,42 @@ const App = () => (
           } />
           <Route path="/owners" element={
             <DashboardLayout>
-              <div className="p-6 text-center">
-                <h1 className="text-2xl font-bold mb-4">Gestión de Propietarios</h1>
-                <p className="text-muted-foreground">Módulo en desarrollo</p>
-              </div>
+              <Owners />
             </DashboardLayout>
           } />
           <Route path="/properties" element={
             <DashboardLayout>
-              <div className="p-6 text-center">
-                <h1 className="text-2xl font-bold mb-4">Gestión de Inmuebles</h1>
-                <p className="text-muted-foreground">Módulo en desarrollo</p>
-              </div>
+              <Properties />
             </DashboardLayout>
           } />
           <Route path="/contracts" element={
             <DashboardLayout>
-              <div className="p-6 text-center">
-                <h1 className="text-2xl font-bold mb-4">Gestión de Contratos</h1>
-                <p className="text-muted-foreground">Módulo en desarrollo</p>
-              </div>
+              <Contracts />
             </DashboardLayout>
           } />
           <Route path="/payments" element={
             <DashboardLayout>
-              <div className="p-6 text-center">
-                <h1 className="text-2xl font-bold mb-4">Gestión de Pagos</h1>
-                <p className="text-muted-foreground">Módulo en desarrollo</p>
-              </div>
+              <Payments />
             </DashboardLayout>
           } />
           <Route path="/reports" element={
             <DashboardLayout>
-              <div className="p-6 text-center">
-                <h1 className="text-2xl font-bold mb-4">Reportes</h1>
-                <p className="text-muted-foreground">Módulo en desarrollo</p>
-              </div>
+              <Reports />
             </DashboardLayout>
           } />
           <Route path="/notifications" element={
             <DashboardLayout>
-              <div className="p-6 text-center">
-                <h1 className="text-2xl font-bold mb-4">Notificaciones</h1>
-                <p className="text-muted-foreground">Módulo en desarrollo</p>
-              </div>
+              <Notifications />
             </DashboardLayout>
           } />
           <Route path="/backups" element={
             <DashboardLayout>
-              <div className="p-6 text-center">
-                <h1 className="text-2xl font-bold mb-4">Gestión de Backups</h1>
-                <p className="text-muted-foreground">Módulo en desarrollo</p>
-              </div>
+              <Backups />
             </DashboardLayout>
           } />
           <Route path="/settings" element={
             <DashboardLayout>
-              <div className="p-6 text-center">
-                <h1 className="text-2xl font-bold mb-4">Configuración</h1>
-                <p className="text-muted-foreground">Módulo en desarrollo</p>
-              </div>
+              <Settings />
             </DashboardLayout>
           } />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
