@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
+import Users from "./pages/Users";
 import Tenants from "./pages/Tenants";
 import Owners from "./pages/Owners";
 import Properties from "./pages/Properties";
@@ -41,10 +42,7 @@ const App = () => (
             } />
             <Route path="/users" element={
               <DashboardLayout>
-                <div className="p-6 text-center">
-                  <h1 className="text-2xl font-bold mb-4">Gestión de Usuarios</h1>
-                  <p className="text-muted-foreground">Módulo en desarrollo</p>
-                </div>
+                <Users />
               </DashboardLayout>
             } />
             <Route path="/owners" element={
