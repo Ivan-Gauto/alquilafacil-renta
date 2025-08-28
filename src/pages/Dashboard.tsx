@@ -122,7 +122,7 @@ const Dashboard = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <CreditCard className="w-5 h-5 text-primary" />
-              Pagos Recientes
+              Pagos
             </CardTitle>
           </CardHeader>
           <CardContent>
