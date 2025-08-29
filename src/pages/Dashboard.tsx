@@ -50,65 +50,65 @@ const Dashboard = () => {
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card className="shadow-card border-0">
+        <Card className="shadow-card border-0 bg-white">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">
+            <CardTitle className="text-sm font-medium text-slate-600">
               Inmuebles Totales
             </CardTitle>
             <Building2 className="w-4 h-4 text-primary" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-foreground">{stats.totalProperties}</div>
-            <p className="text-xs text-success flex items-center gap-1 mt-1">
+            <div className="text-2xl font-bold text-slate-900">{stats.totalProperties}</div>
+            <p className="text-xs text-green-600 flex items-center gap-1 mt-1">
               <TrendingUp className="w-3 h-3" />
               +12% desde el mes pasado
             </p>
           </CardContent>
         </Card>
 
-        <Card className="shadow-card border-0">
+        <Card className="shadow-card border-0 bg-white">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">
+            <CardTitle className="text-sm font-medium text-slate-600">
               Inquilinos Activos
             </CardTitle>
             <Users className="w-4 h-4 text-primary" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-foreground">{stats.activeTenants}</div>
-            <p className="text-xs text-muted-foreground mt-1">
+            <div className="text-2xl font-bold text-slate-900">{stats.activeTenants}</div>
+            <p className="text-xs text-slate-600 mt-1">
               {stats.occupancyRate}% ocupación
             </p>
           </CardContent>
         </Card>
 
-        <Card className="shadow-card border-0">
+        <Card className="shadow-card border-0 bg-white">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">
+            <CardTitle className="text-sm font-medium text-slate-600">
               Contratos Activos
             </CardTitle>
             <FileText className="w-4 h-4 text-primary" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-foreground">{stats.activeContracts}</div>
-            <p className="text-xs text-warning flex items-center gap-1 mt-1">
+            <div className="text-2xl font-bold text-slate-900">{stats.activeContracts}</div>
+            <p className="text-xs text-amber-600 flex items-center gap-1 mt-1">
               <AlertTriangle className="w-3 h-3" />
               {stats.expiringContracts} próximos a vencer
             </p>
           </CardContent>
         </Card>
 
-        <Card className="shadow-card border-0">
+        <Card className="shadow-card border-0 bg-white">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">
+            <CardTitle className="text-sm font-medium text-slate-600">
               Ingresos Mensual
             </CardTitle>
-            <DollarSign className="w-4 h-4 text-success" />
+            <DollarSign className="w-4 h-4 text-green-600" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-foreground">
+            <div className="text-2xl font-bold text-slate-900">
               ${stats.monthlyRevenue.toLocaleString('es-AR')}
             </div>
-            <p className="text-xs text-success flex items-center gap-1 mt-1">
+            <p className="text-xs text-green-600 flex items-center gap-1 mt-1">
               <TrendingUp className="w-3 h-3" />
               +8.2% vs mes anterior
             </p>
@@ -118,9 +118,9 @@ const Dashboard = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Recent Payments */}
-        <Card className="shadow-card border-0">
+        <Card className="shadow-card border-0 bg-white">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="flex items-center gap-2 text-slate-900">
               <CreditCard className="w-5 h-5 text-primary" />
               Pagos
             </CardTitle>
@@ -128,17 +128,17 @@ const Dashboard = () => {
           <CardContent>
             <div className="space-y-4">
               {recentPayments.map((payment) => (
-                <div key={payment.id} className="flex items-center justify-between p-3 rounded-lg bg-muted/50">
+                <div key={payment.id} className="flex items-center justify-between p-3 rounded-lg bg-slate-50">
                   <div className="flex-1">
-                    <p className="font-medium text-foreground">{payment.tenant}</p>
-                    <p className="text-sm text-muted-foreground">{payment.property}</p>
+                    <p className="font-medium text-slate-900">{payment.tenant}</p>
+                    <p className="text-sm text-slate-600">{payment.property}</p>
                   </div>
                   <div className="text-right">
-                    <p className="font-medium">${payment.amount.toLocaleString('es-AR')}</p>
+                    <p className="font-medium text-slate-900">${payment.amount.toLocaleString('es-AR')}</p>
                     <div className="flex items-center gap-2">
                       <Badge 
                         variant={payment.status === 'paid' ? 'default' : 'secondary'}
-                        className={payment.status === 'paid' ? 'bg-success text-success-foreground' : ''}
+                        className={payment.status === 'paid' ? 'bg-green-600 text-white' : 'bg-slate-200 text-slate-700'}
                       >
                         {payment.status === 'paid' ? 'Pagado' : 'Pendiente'}
                       </Badge>
@@ -151,24 +151,24 @@ const Dashboard = () => {
         </Card>
 
         {/* Expiring Contracts */}
-        <Card className="shadow-card border-0">
+        <Card className="shadow-card border-0 bg-white">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Calendar className="w-5 h-5 text-warning" />
+            <CardTitle className="flex items-center gap-2 text-slate-900">
+              <Calendar className="w-5 h-5 text-amber-600" />
               Contratos por Vencer
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
               {expiringContracts.map((contract) => (
-                <div key={contract.id} className="flex items-center justify-between p-3 rounded-lg bg-muted/50">
+                <div key={contract.id} className="flex items-center justify-between p-3 rounded-lg bg-slate-50">
                   <div className="flex-1">
-                    <p className="font-medium text-foreground">{contract.tenant}</p>
-                    <p className="text-sm text-muted-foreground">{contract.property}</p>
+                    <p className="font-medium text-slate-900">{contract.tenant}</p>
+                    <p className="text-sm text-slate-600">{contract.property}</p>
                   </div>
                   <div className="text-right">
-                    <p className="font-medium">{contract.expiryDate}</p>
-                    <Badge variant="secondary" className="bg-warning/10 text-warning">
+                    <p className="font-medium text-slate-900">{contract.expiryDate}</p>
+                    <Badge variant="secondary" className="bg-amber-100 text-amber-700">
                       {contract.daysLeft} días
                     </Badge>
                   </div>
@@ -180,44 +180,44 @@ const Dashboard = () => {
       </div>
 
       {/* Quick Actions */}
-      <Card className="shadow-card border-0">
+      <Card className="shadow-card border-0 bg-white">
         <CardHeader>
-          <CardTitle>Alertas del Sistema</CardTitle>
+          <CardTitle className="text-slate-900">Alertas del Sistema</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="p-4 rounded-lg bg-destructive/10 border border-destructive/20">
+            <div className="p-4 rounded-lg bg-red-50 border border-red-200">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-destructive/20 rounded-full flex items-center justify-center">
-                  <AlertTriangle className="w-4 h-4 text-destructive" />
+                <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
+                  <AlertTriangle className="w-4 h-4 text-red-600" />
                 </div>
                 <div>
-                  <p className="font-medium text-foreground">{stats.pendingPayments} Pagos Pendientes</p>
-                  <p className="text-sm text-muted-foreground">Requieren atención inmediata</p>
+                  <p className="font-medium text-slate-900">{stats.pendingPayments} Pagos Pendientes</p>
+                  <p className="text-sm text-slate-600">Requieren atención inmediata</p>
                 </div>
               </div>
             </div>
 
-            <div className="p-4 rounded-lg bg-warning/10 border border-warning/20">
+            <div className="p-4 rounded-lg bg-amber-50 border border-amber-200">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-warning/20 rounded-full flex items-center justify-center">
-                  <Calendar className="w-4 h-4 text-warning" />
+                <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center">
+                  <Calendar className="w-4 h-4 text-amber-600" />
                 </div>
                 <div>
-                  <p className="font-medium text-foreground">{stats.expiringContracts} Contratos Vencen</p>
-                  <p className="text-sm text-muted-foreground">En los próximos 30 días</p>
+                  <p className="font-medium text-slate-900">{stats.expiringContracts} Contratos Vencen</p>
+                  <p className="text-sm text-slate-600">En los próximos 30 días</p>
                 </div>
               </div>
             </div>
 
-            <div className="p-4 rounded-lg bg-primary/10 border border-primary/20">
+            <div className="p-4 rounded-lg bg-emerald-50 border border-emerald-200">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
-                  <Building2 className="w-4 h-4 text-primary" />
+                <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center">
+                  <Building2 className="w-4 h-4 text-emerald-600" />
                 </div>
                 <div>
-                  <p className="font-medium text-foreground">{stats.maintenanceRequests} Mantenimientos</p>
-                  <p className="text-sm text-muted-foreground">Solicitudes abiertas</p>
+                  <p className="font-medium text-slate-900">{stats.maintenanceRequests} Mantenimientos</p>
+                  <p className="text-sm text-slate-600">Solicitudes abiertas</p>
                 </div>
               </div>
             </div>
