@@ -14,6 +14,10 @@ import {
   Ruler,
   User
 } from "lucide-react";
+import property1 from "@/assets/property1.jpg";
+import property2 from "@/assets/property2.jpg";
+import property3 from "@/assets/property3.jpg";
+import property4 from "@/assets/property4.jpg";
 import {
   Table,
   TableBody,
@@ -38,7 +42,8 @@ const Properties = () => {
       owner: "Roberto Fernández",
       status: "Ocupado",
       rentAmount: 45000,
-      amenities: ["Balcón", "Cocina integrada", "Portero 24hs"]
+      amenities: ["Balcón", "Cocina integrada", "Portero 24hs"],
+      image: property1
     },
     {
       id: 2,
@@ -50,7 +55,8 @@ const Properties = () => {
       owner: "Elena Martínez",
       status: "Disponible",
       rentAmount: 65000,
-      amenities: ["Patio", "Cochera", "Parrilla"]
+      amenities: ["Patio", "Cochera", "Parrilla"],
+      image: property2
     },
     {
       id: 3,
@@ -62,7 +68,8 @@ const Properties = () => {
       owner: "Miguel Santos",
       status: "Ocupado",
       rentAmount: 38000,
-      amenities: ["Balcón", "Laundry"]
+      amenities: ["Balcón", "Laundry"],
+      image: property3
     },
     {
       id: 4,
@@ -74,7 +81,8 @@ const Properties = () => {
       owner: "Carmen Vega",
       status: "Mantenimiento",
       rentAmount: 55000,
-      amenities: ["Terraza", "Cochera", "Pileta"]
+      amenities: ["Terraza", "Cochera", "Pileta"],
+      image: property4
     }
   ];
 
@@ -175,6 +183,7 @@ const Properties = () => {
             <Table>
               <TableHeader>
                 <TableRow className="bg-muted/50">
+                  <TableHead>Imagen</TableHead>
                   <TableHead>Inmueble</TableHead>
                   <TableHead>Propietario</TableHead>
                   <TableHead>Características</TableHead>
@@ -187,6 +196,15 @@ const Properties = () => {
               <TableBody>
                 {filteredProperties.map((property) => (
                   <TableRow key={property.id} className="hover:bg-muted/50">
+                    <TableCell>
+                      <div className="w-16 h-16 rounded-lg overflow-hidden">
+                        <img 
+                          src={property.image} 
+                          alt={`Imagen de ${property.address}`}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </TableCell>
                     <TableCell>
                       <div>
                         <div className="flex items-center gap-2">
