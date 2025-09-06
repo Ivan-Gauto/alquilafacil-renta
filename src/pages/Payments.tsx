@@ -25,9 +25,11 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import AddPaymentDialog from "@/components/payments/AddPaymentDialog";
 
 const Payments = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [isAddPaymentOpen, setIsAddPaymentOpen] = useState(false);
 
   // Mock data - in real app, this would come from Supabase
   const payments = [
@@ -140,7 +142,10 @@ const Payments = () => {
             <p className="text-muted-foreground">Registro y control de pagos de alquileres</p>
           </div>
         </div>
-        <Button className="bg-gradient-primary hover:opacity-90 shadow-elegant">
+        <Button 
+          onClick={() => setIsAddPaymentOpen(true)}
+          className="bg-gradient-primary hover:opacity-90 shadow-elegant"
+        >
           <Plus className="w-4 h-4 mr-2" />
           Registrar Pago
         </Button>
@@ -305,6 +310,11 @@ const Payments = () => {
           )}
         </CardContent>
       </Card>
+
+      <AddPaymentDialog
+        open={isAddPaymentOpen}
+        onOpenChange={setIsAddPaymentOpen}
+      />
     </div>
   );
 };

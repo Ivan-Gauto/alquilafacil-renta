@@ -35,12 +35,8 @@ const userSchema = z.object({
   name: z.string().min(1, "El nombre es requerido"),
   email: z.string().email("Email inválido"),
   phone: z.string().min(1, "El teléfono es requerido"),
-  role: z.enum(["admin", "manager", "operator"], {
-    required_error: "Selecciona un rol",
-  }),
-  status: z.enum(["active", "inactive"], {
-    required_error: "Selecciona un estado",
-  }),
+  role: z.enum(["admin", "manager", "operator"]),
+  status: z.enum(["active", "inactive"]),
 });
 
 type UserFormData = z.infer<typeof userSchema>;
