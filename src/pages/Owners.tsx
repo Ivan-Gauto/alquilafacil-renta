@@ -125,20 +125,20 @@ const Owners = () => {
         </Card>
         <Card className="shadow-card border-0">
           <CardContent className="p-4">
-            <div className="text-2xl font-bold text-success">{owners.filter(o => o.status === "Activo").length}</div>
-            <p className="text-sm text-muted-foreground">Activos</p>
+            <div className="text-2xl font-bold text-warning">{owners.filter(o => o.status === "Pendiente").length}</div>
+            <p className="text-sm text-muted-foreground">Pagos Pendientes</p>
           </CardContent>
         </Card>
         <Card className="shadow-card border-0">
           <CardContent className="p-4">
-            <div className="text-2xl font-bold text-foreground">{owners.reduce((sum, o) => sum + o.properties, 0)}</div>
-            <p className="text-sm text-muted-foreground">Total Propiedades</p>
+            <div className="text-2xl font-bold text-primary">${Math.round(owners.reduce((sum, o) => sum + o.totalIncome, 0) / owners.length).toLocaleString('es-AR')}</div>
+            <p className="text-sm text-muted-foreground">Ingreso Promedio</p>
           </CardContent>
         </Card>
         <Card className="shadow-card border-0">
           <CardContent className="p-4">
-            <div className="text-2xl font-bold text-primary">${owners.reduce((sum, o) => sum + o.totalIncome, 0).toLocaleString('es-AR')}</div>
-            <p className="text-sm text-muted-foreground">Ingresos Totales</p>
+            <div className="text-2xl font-bold text-success">{owners.filter(o => o.properties > 1).length}</div>
+            <p className="text-sm text-muted-foreground">Multi-propietarios</p>
           </CardContent>
         </Card>
       </div>
