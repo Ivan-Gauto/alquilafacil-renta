@@ -18,14 +18,6 @@ import property1 from "@/assets/property1.jpg";
 import property2 from "@/assets/property2.jpg";
 import property3 from "@/assets/property3.jpg";
 import property4 from "@/assets/property4.jpg";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
 
 const Properties = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -179,93 +171,79 @@ const Properties = () => {
             </div>
           </div>
 
-          <div className="rounded-lg border border-border">
-            <Table>
-              <TableHeader>
-                <TableRow className="bg-muted/50">
-                  <TableHead>Imagen</TableHead>
-                  <TableHead>Inmueble</TableHead>
-                  <TableHead>Propietario</TableHead>
-                  <TableHead>Características</TableHead>
-                  <TableHead>Estado</TableHead>
-                  <TableHead>Alquiler</TableHead>
-                  <TableHead>Comodidades</TableHead>
-                  <TableHead className="text-center">Acciones</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {filteredProperties.map((property) => (
-                  <TableRow key={property.id} className="hover:bg-muted/50">
-                    <TableCell>
-                      <div className="w-16 h-16 rounded-lg overflow-hidden">
-                        <img 
-                          src={property.image} 
-                          alt={`Imagen de ${property.address}`}
-                          className="w-full h-full object-cover"
-                        />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredProperties.map((property) => (
+              <Card key={property.id} className="shadow-card border-0 overflow-hidden hover:shadow-elegant transition-shadow">
+                <div className="aspect-video overflow-hidden">
+                  <img 
+                    src={property.image} 
+                    alt={`Imagen de ${property.address}`}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <CardContent className="p-4 space-y-4">
+                  <div className="flex justify-between items-start">
+                    <div className="flex-1">
+                      <div className="flex items-start gap-2 mb-1">
+                        <MapPin className="w-4 h-4 text-muted-foreground mt-0.5 flex-shrink-0" />
+                        <h3 className="font-semibold text-foreground leading-tight">{property.address}</h3>
                       </div>
-                    </TableCell>
-                    <TableCell>
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <MapPin className="w-4 h-4 text-muted-foreground" />
-                          <p className="font-medium text-foreground">{property.address}</p>
-                        </div>
-                        <p className="text-sm text-muted-foreground">{property.type}</p>
-                      </div>
-                    </TableCell>
-                    <TableCell>
-                      <div className="flex items-center gap-2">
-                        <User className="w-4 h-4 text-muted-foreground" />
-                        <p className="text-sm">{property.owner}</p>
-                      </div>
-                    </TableCell>
-                    <TableCell>
-                      <div className="space-y-1">
-                        <div className="flex items-center gap-2 text-sm">
-                          <Ruler className="w-3 h-3" />
-                          {property.surface}m²
-                        </div>
-                        <div className="flex items-center gap-2 text-sm">
-                          <Home className="w-3 h-3" />
-                          {property.bedrooms} hab, {property.bathrooms} baño{property.bathrooms > 1 ? 's' : ''}
-                        </div>
-                      </div>
-                    </TableCell>
-                    <TableCell>
-                      {getStatusBadge(property.status)}
-                    </TableCell>
-                    <TableCell>
-                      <p className="font-medium">${property.rentAmount.toLocaleString('es-AR')}</p>
-                    </TableCell>
-                    <TableCell>
-                      <div className="flex flex-wrap gap-1">
-                        {property.amenities.slice(0, 2).map((amenity, index) => (
-                          <Badge key={index} variant="outline" className="text-xs">
-                            {amenity}
-                          </Badge>
-                        ))}
-                        {property.amenities.length > 2 && (
-                          <Badge variant="outline" className="text-xs">
-                            +{property.amenities.length - 2}
-                          </Badge>
-                        )}
-                      </div>
-                    </TableCell>
-                    <TableCell>
-                      <div className="flex items-center gap-2 justify-center">
-                        <Button variant="ghost" size="icon" className="w-8 h-8">
-                          <Edit3 className="w-4 h-4" />
-                        </Button>
-                        <Button variant="ghost" size="icon" className="w-8 h-8 text-destructive hover:text-destructive">
-                          <Trash2 className="w-4 h-4" />
-                        </Button>
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+                      <p className="text-sm text-muted-foreground mb-2">{property.type}</p>
+                    </div>
+                    {getStatusBadge(property.status)}
+                  </div>
+
+                  <div className="flex items-center gap-2 text-muted-foreground">
+                    <User className="w-4 h-4" />
+                    <span className="text-sm">{property.owner}</span>
+                  </div>
+
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-1">
+                      <Ruler className="w-4 h-4" />
+                      <span>{property.surface}m²</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Home className="w-4 h-4" />
+                      <span>{property.bedrooms} hab, {property.bathrooms} baño{property.bathrooms > 1 ? 's' : ''}</span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-muted-foreground">Alquiler mensual</span>
+                      <span className="font-bold text-lg text-primary">${property.rentAmount.toLocaleString('es-AR')}</span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <p className="text-sm text-muted-foreground">Comodidades</p>
+                    <div className="flex flex-wrap gap-1">
+                      {property.amenities.slice(0, 3).map((amenity, index) => (
+                        <Badge key={index} variant="outline" className="text-xs">
+                          {amenity}
+                        </Badge>
+                      ))}
+                      {property.amenities.length > 3 && (
+                        <Badge variant="outline" className="text-xs">
+                          +{property.amenities.length - 3}
+                        </Badge>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="flex gap-2 pt-2">
+                    <Button variant="outline" size="sm" className="flex-1">
+                      <Edit3 className="w-4 h-4 mr-2" />
+                      Editar
+                    </Button>
+                    <Button variant="outline" size="sm" className="text-destructive hover:text-destructive hover:bg-destructive/10">
+                      <Trash2 className="w-4 h-4" />
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
 
           {filteredProperties.length === 0 && (
